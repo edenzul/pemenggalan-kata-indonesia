@@ -1,4 +1,4 @@
-# Pemenggalan Kata Indonesia
+# Pemenggalan Kata Bahasa Indonesia
 Pemenggalan kata atau silabifikasi untuk bahasa Indonesia. <br />
 'Fork' dari https://pebbie.wordpress.com/2010/07/30/pemenggalan-suku-kata-dengan-python/
 
