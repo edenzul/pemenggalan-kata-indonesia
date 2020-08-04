@@ -1,11 +1,11 @@
 # Pemenggalan Kata Indonesia
-Pemenggalan kata atau silabifikasi untuk bahasa Indonesia
+Pemenggalan kata atau silabifikasi untuk bahasa Indonesia. <br />
 'Fork' dari https://pebbie.wordpress.com/2010/07/30/pemenggalan-suku-kata-dengan-python/
 
 ## Penggunaan
 Penggunaan syllabification.py 
 
-Dalam command
+Dalam terminal
 ```bash
 python3 syllabification.py
 ```
