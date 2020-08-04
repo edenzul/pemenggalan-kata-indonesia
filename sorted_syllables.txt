@@ -1,5 +1,5 @@
-# There are still some mistakes due to imperfections in the algorithm
-# Ada beberapa kesalahan disebabkan oleh ketidaksempurnaan algoritmanya
+# There are still some mistakes due to imperfections in the algorithm or word data
+# Ada beberapa kesalahan disebabkan oleh ketidaksempurnaan algoritmanya atau data kata
 a
 ab
 ad
