@@ -12,21 +12,18 @@ Ini dibuat karena KBBI resmi memiliki batasan query.
 Saya dalam petik memperbagus kodenya sesuai kebutuhan saya. Masih ada ketidaksempurnaan tapi saya rasa jika saya tambah banyak aturan lagi itu hanya memperumit.
 '''
 
-vocals = list('aiueo*()-=')
-diftong = list('*()-=')
+vocals = list('aiueo*()-')
+diftong = list('*()-')
 gabungan = {'kh':'!',
 			'ng':'@',
 			'sy':'#',
 			'ny':'$',
 			'tr':'%',
 			'gr':'^',
-			'br':'&',
-			'kl':'[',
 			'ai':'*',
 			'ei':'(',
 			'au':')',
-			'oi':'-',
-			'oo':'=',}
+			'oi':'-',}
 
 def replacer(word):
 	'''
@@ -51,7 +48,7 @@ def unreplace(syllables):
 
 def preprocess(word):
 	'''
-	Split the word base on the rule: 
+	Split the word based on the rule:
 	A consonant always has a vocal as its friend.
 	'''
 	result = []
@@ -101,7 +98,7 @@ def process(syllables):
 					result.append(join(syllables[:2]))
 					del syllables[:2]
 			elif not contains(vocals, syllables[0]):
-				if not contains(vocals, syllables[2]): # Avoids [spe, 'ktru', m]
+				if not contains(vocals, syllables[2]): # Avoids [s, pe, 'k', tru, m]
 					result.append(join(syllables[:3]))
 					del syllables[:3]
 				else:
@@ -115,6 +112,25 @@ def process(syllables):
 				result.append(syllables[0])
 				del syllables[0]
 			break
+
+	if '%an' in result:		# Special check for trans e.g tran.smi.gra.si -> trans.mi.gra.si
+		indx = result.index('%an')
+		try:
+			if result[indx + 1][0] == 's':
+				if result[indx + 1][1] not in vocals:
+					result[indx] = '%ans'
+					result[indx + 1] = result[indx + 1].replace('s', '')
+		except IndexError:
+			pass
+	elif 'ek' in result:		# Special check for trans e.g ek.skre.si -> eks.kre.si
+		indx = result.index('ek')
+		try:
+			if result[indx + 1][0] == 's':
+				if result[indx + 1][1] not in vocals:
+					result[indx] = 'eks'
+					result[indx + 1] = result[indx + 1].replace('s', '')
+		except IndexError:
+			pass
 	return result
 
 def join(letters):
@@ -133,7 +149,7 @@ def contains(items, letters):
 	return False
 
 
-def main(word):
+def syllabify(word):
 	replaced_word = replacer(word)
 	syllables = preprocess(replaced_word)
 	processed_syllables = process(syllables)
@@ -142,4 +158,4 @@ def main(word):
 
 if __name__ == '__main__':
 	word = input('Word : ')
-	main(word)
+	syllabify(word)
