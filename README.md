@@ -14,7 +14,7 @@ Dalam python
 ```python
 from syllabification import main
 
-syllabified_word = main('kata')
+syllabified_word = syllabify('kata')
 # this will return ['ka', 'ta']
 ```
 
