@@ -2,6 +2,8 @@
 Pemenggalan kata atau silabifikasi untuk bahasa Indonesia. <br />
 'Fork' dari https://pebbie.wordpress.com/2010/07/30/pemenggalan-suku-kata-dengan-python/
 
+Aturan pemenggalan kata menurut EYD V bisa dilihat di tautan https://ejaan.kemdikbud.go.id/eyd/penulisan-kata/pemenggalan-kata/
+
 ## Penggunaan
 Penggunaan syllabification.py 
 
